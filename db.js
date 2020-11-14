@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 
 const modeloPelis = require('./models/peliculas');
+const modeloUsers = require('./models/users');
 
 const sequelize = new Sequelize('pelisdb', 'root', '', {
     host:'localhost',
@@ -8,6 +9,7 @@ const sequelize = new Sequelize('pelisdb', 'root', '', {
 });
 
 const pelicula = modeloPelis(sequelize, Sequelize);
+const users = modeloUsers(sequelize, Sequelize);
 
 sequelize.sync({force : false})
     .then(()=>{
@@ -15,5 +17,6 @@ sequelize.sync({force : false})
     })
 
 module.exports={
-    pelicula
+    pelicula,
+    users
 }
