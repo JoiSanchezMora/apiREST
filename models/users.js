@@ -7,6 +7,6 @@ module.exports = (sequelize, type)=>{
         },
         username: type.STRING,
         email: type.STRING,
-        password: type.STRING,
+        password: type.STRING(150),
     });
 }
